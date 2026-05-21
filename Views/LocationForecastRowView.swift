@@ -4,23 +4,24 @@ struct LocationForecastRowView: View {
     let viewModel: LocationForecastViewModel
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 28) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text(viewModel.title)
-                    .font(.title2.bold())
+                    .font(.title.bold())
 
                 Text(viewModel.subtitle)
-                    .font(.body)
+                    .font(.title3)
                     .foregroundStyle(.secondary)
             }
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 24) {
+                HStack(spacing: 38) {
                     ForEach(viewModel.forecasts) { forecast in
                         ForecastCardView(forecast: forecast)
                     }
                 }
-                .padding(.vertical, 12)
+                .padding(.horizontal, 6)
+                .padding(.vertical, 44)
             }
         }
     }

@@ -9,15 +9,16 @@ struct WeatherDashboardView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 44) {
+            VStack(alignment: .leading, spacing: 72) {
                 header
 
                 ForEach(viewModel.locationForecasts) { rowViewModel in
                     LocationForecastRowView(viewModel: rowViewModel)
                 }
             }
-            .padding(.horizontal, 72)
-            .padding(.vertical, 56)
+            .padding(.horizontal, 96)
+            .padding(.top, 72)
+            .padding(.bottom, 96)
         }
         .background(Color(.black))
         .task {
@@ -26,12 +27,12 @@ struct WeatherDashboardView: View {
     }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
             Text("WeatherTV")
-                .font(.largeTitle.bold())
+                .font(.system(size: 56, weight: .bold, design: .rounded))
 
             Text("Multi-day forecast")
-                .font(.title3)
+                .font(.title2)
                 .foregroundStyle(.secondary)
         }
     }
