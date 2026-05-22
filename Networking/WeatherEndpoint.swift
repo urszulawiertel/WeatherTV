@@ -5,13 +5,28 @@ struct WeatherEndpoint {
     let longitude: Double
 
     var url: URL? {
-        var components = URLComponents(string: "https://api.open-meteo.com/v1/forecast")
-        components?.queryItems = [
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.open-meteo.com"
+        components.path = "/v1/forecast"
+        components.queryItems = [
             URLQueryItem(name: "latitude", value: String(latitude)),
             URLQueryItem(name: "longitude", value: String(longitude)),
-            URLQueryItem(name: "daily", value: "temperature_2m_max,temperature_2m_min,weather_code"),
+            URLQueryItem(name: "daily", value: dailyFields.joined(separator: ",")),
+            URLQueryItem(name: "forecast_days", value: "7"),
             URLQueryItem(name: "timezone", value: "auto")
         ]
-        return components?.url
+
+        return components.url
+    }
+
+    private var dailyFields: [String] {
+        [
+            "weather_code",
+            "temperature_2m_max",
+            "temperature_2m_min",
+            "precipitation_probability_max",
+            "wind_speed_10m_max"
+        ]
     }
 }

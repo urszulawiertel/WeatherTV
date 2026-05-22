@@ -6,7 +6,7 @@ struct WeatherTVApp: App {
         WindowGroup {
             WeatherDashboardView(
                 viewModel: WeatherDashboardViewModel(
-                    weatherService: MockWeatherService()
+                    weatherService: OpenMeteoWeatherService()
                 )
             )
         }

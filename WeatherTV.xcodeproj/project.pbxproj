@@ -21,6 +21,7 @@
 		10000000000000000000000C /* LocationForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000C /* LocationForecastRowView.swift */; };
 		10000000000000000000000D /* ForecastCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000D /* ForecastCardView.swift */; };
 		10000000000000000000000E /* ForecastDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000E /* ForecastDetailsView.swift */; };
+		10000000000000000000000F /* OpenMeteoForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000F /* OpenMeteoForecastResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		20000000000000000000000C /* LocationForecastRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationForecastRowView.swift; sourceTree = "<group>"; };
 		20000000000000000000000D /* ForecastCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCardView.swift; sourceTree = "<group>"; };
 		20000000000000000000000E /* ForecastDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDetailsView.swift; sourceTree = "<group>"; };
+		20000000000000000000000F /* OpenMeteoForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteoForecastResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			children = (
 				200000000000000000000004 /* WeatherAPIClient.swift */,
 				200000000000000000000005 /* WeatherEndpoint.swift */,
+				20000000000000000000000F /* OpenMeteoForecastResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				10000000000000000000000C /* LocationForecastRowView.swift in Sources */,
 				10000000000000000000000D /* ForecastCardView.swift in Sources */,
 				10000000000000000000000E /* ForecastDetailsView.swift in Sources */,
+				10000000000000000000000F /* OpenMeteoForecastResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

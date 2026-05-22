@@ -23,7 +23,7 @@ struct ForecastCardView: View {
             Text(Self.dayFormatter.string(from: forecast.date))
                 .font(.title3.weight(.semibold))
 
-            Image(systemName: symbolName(for: forecast.condition))
+            Image(systemName: forecast.iconName)
                 .font(.system(size: 74, weight: .medium))
                 .frame(height: 82, alignment: .center)
 
@@ -62,19 +62,6 @@ struct ForecastCardView: View {
 
     private var cardBackground: Color {
         isFocused ? .white.opacity(0.2) : .white.opacity(0.12)
-    }
-
-    private func symbolName(for condition: String) -> String {
-        switch condition {
-        case "Sunny", "Clear":
-            return "sun.max.fill"
-        case "Rain":
-            return "cloud.rain.fill"
-        case "Cloudy":
-            return "cloud.fill"
-        default:
-            return "cloud.sun.fill"
-        }
     }
 }
 

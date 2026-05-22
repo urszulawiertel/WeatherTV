@@ -49,7 +49,7 @@ final class WeatherDashboardViewModel: ObservableObject {
         } catch {
             state = .failed(
                 ErrorViewState(
-                    message: "We couldn't load the forecast right now. Please try again."
+                    message: error.localizedDescription
                 )
             )
         }
