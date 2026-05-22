@@ -33,8 +33,11 @@ struct MockWeatherService: WeatherServiceProtocol {
             DailyForecast(
                 date: forecast.date,
                 condition: forecast.condition,
+                iconName: forecast.iconName,
                 highTemperature: forecast.highTemperature + temperatureOffset(for: location) + index,
-                lowTemperature: forecast.lowTemperature + temperatureOffset(for: location)
+                lowTemperature: forecast.lowTemperature + temperatureOffset(for: location),
+                precipitationProbability: forecast.precipitationProbability,
+                windSpeed: forecast.windSpeed
             )
         }
     }

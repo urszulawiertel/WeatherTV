@@ -2,17 +2,26 @@ import SwiftUI
 
 struct WeatherDashboardView: View {
     @StateObject private var viewModel: WeatherDashboardViewModel
+    @State private var navigationPath = NavigationPath()
 
     init(viewModel: WeatherDashboardViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
-        ZStack {
-            Color.black
-                .ignoresSafeArea()
+        NavigationStack(path: $navigationPath) {
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
 
-            content
+                content
+            }
+            .navigationDestination(for: ForecastDetailsRoute.self) { route in
+                ForecastDetailsView(
+                    locationName: route.locationName,
+                    forecast: route.forecast
+                )
+            }
         }
         .task {
             await viewModel.loadForecasts()
@@ -47,7 +56,12 @@ struct WeatherDashboardView: View {
                 header
 
                 ForEach(locationForecasts) { rowViewModel in
-                    LocationForecastRowView(viewModel: rowViewModel)
+                    LocationForecastRowView(viewModel: rowViewModel) { forecast in
+                        openDetails(
+                            forecast: forecast,
+                            locationName: rowViewModel.title
+                        )
+                    }
                 }
             }
             .padding(.horizontal, 96)
@@ -118,6 +132,23 @@ struct WeatherDashboardView: View {
         }
         .padding(.horizontal, 120)
     }
+
+    private func openDetails(
+        forecast: DailyForecast,
+        locationName: String
+    ) {
+        navigationPath.append(
+            ForecastDetailsRoute(
+                locationName: locationName,
+                forecast: forecast
+            )
+        )
+    }
+}
+
+private struct ForecastDetailsRoute: Hashable {
+    let locationName: String
+    let forecast: DailyForecast
 }
 
 struct WeatherDashboardView_Previews: PreviewProvider {
