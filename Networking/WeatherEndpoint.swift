@@ -14,7 +14,10 @@ struct WeatherEndpoint {
             URLQueryItem(name: "longitude", value: String(longitude)),
             URLQueryItem(name: "daily", value: dailyFields.joined(separator: ",")),
             URLQueryItem(name: "forecast_days", value: "7"),
-            URLQueryItem(name: "timezone", value: "auto")
+            URLQueryItem(name: "timezone", value: "auto"),
+            URLQueryItem(name: "temperature_unit", value: "celsius"),
+            URLQueryItem(name: "wind_speed_unit", value: "kmh"),
+            URLQueryItem(name: "precipitation_unit", value: "mm")
         ]
 
         return components.url

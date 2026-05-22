@@ -1,6 +1,6 @@
 import Foundation
 
-struct MockWeatherService: WeatherServiceProtocol {
+final class MockWeatherService: WeatherServiceProtocol {
     enum Scenario {
         case success
         case empty
@@ -12,13 +12,20 @@ struct MockWeatherService: WeatherServiceProtocol {
     }
 
     private let scenario: Scenario
+    private var remainingScenarios: [Scenario]
 
     init(scenario: Scenario = .success) {
         self.scenario = scenario
+        remainingScenarios = []
+    }
+
+    init(scenarios: [Scenario]) {
+        scenario = scenarios.last ?? .success
+        remainingScenarios = scenarios
     }
 
     func fetchForecast(for location: Location) async throws -> [DailyForecast] {
-        switch scenario {
+        switch nextScenario() {
         case .success:
             return forecast(for: location)
         case .empty:
@@ -40,6 +47,14 @@ struct MockWeatherService: WeatherServiceProtocol {
                 windSpeed: forecast.windSpeed
             )
         }
+    }
+
+    private func nextScenario() -> Scenario {
+        guard !remainingScenarios.isEmpty else {
+            return scenario
+        }
+
+        return remainingScenarios.removeFirst()
     }
 
     private func temperatureOffset(for location: Location) -> Int {

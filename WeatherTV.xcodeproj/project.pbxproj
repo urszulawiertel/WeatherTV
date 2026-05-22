@@ -22,7 +22,21 @@
 		10000000000000000000000D /* ForecastCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000D /* ForecastCardView.swift */; };
 		10000000000000000000000E /* ForecastDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000E /* ForecastDetailsView.swift */; };
 		10000000000000000000000F /* OpenMeteoForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000F /* OpenMeteoForecastResponse.swift */; };
+		A00000000000000000000001 /* OpenMeteoForecastMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000001 /* OpenMeteoForecastMapperTests.swift */; };
+		A00000000000000000000002 /* WeatherEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000002 /* WeatherEndpointTests.swift */; };
+		A00000000000000000000003 /* WeatherDashboardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000003 /* WeatherDashboardViewModelTests.swift */; };
+		A00000000000000000000004 /* ErrorMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000004 /* ErrorMappingTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A70000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 700000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 500000000000000000000001;
+			remoteInfo = WeatherTV;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		200000000000000000000000 /* WeatherTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,10 +55,22 @@
 		20000000000000000000000D /* ForecastCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCardView.swift; sourceTree = "<group>"; };
 		20000000000000000000000E /* ForecastDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDetailsView.swift; sourceTree = "<group>"; };
 		20000000000000000000000F /* OpenMeteoForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteoForecastResponse.swift; sourceTree = "<group>"; };
+		A10000000000000000000000 /* WeatherTVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000001 /* OpenMeteoForecastMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteoForecastMapperTests.swift; sourceTree = "<group>"; };
+		A10000000000000000000002 /* WeatherEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEndpointTests.swift; sourceTree = "<group>"; };
+		A10000000000000000000003 /* WeatherDashboardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDashboardViewModelTests.swift; sourceTree = "<group>"; };
+		A10000000000000000000004 /* ErrorMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMappingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		300000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A30000000000000000000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -136,6 +162,10 @@
 		400000000000000000000009 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A10000000000000000000001 /* OpenMeteoForecastMapperTests.swift */,
+				A10000000000000000000002 /* WeatherEndpointTests.swift */,
+				A10000000000000000000003 /* WeatherDashboardViewModelTests.swift */,
+				A10000000000000000000004 /* ErrorMappingTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -144,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				200000000000000000000000 /* WeatherTV.app */,
+				A10000000000000000000000 /* WeatherTVTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +199,24 @@
 			productReference = 200000000000000000000000 /* WeatherTV.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A50000000000000000000001 /* WeatherTVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A90000000000000000000001 /* Build configuration list for PBXNativeTarget "WeatherTVTests" */;
+			buildPhases = (
+				A60000000000000000000001 /* Sources */,
+				A30000000000000000000001 /* Frameworks */,
+				A60000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A70000000000000000000001 /* PBXTargetDependency */,
+			);
+			name = WeatherTVTests;
+			productName = WeatherTVTests;
+			productReference = A10000000000000000000000 /* WeatherTVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -180,6 +229,10 @@
 				TargetAttributes = {
 					500000000000000000000001 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					A50000000000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 500000000000000000000001;
 					};
 				};
 			};
@@ -197,12 +250,20 @@
 			projectRoot = "";
 			targets = (
 				500000000000000000000001 /* WeatherTV */,
+				A50000000000000000000001 /* WeatherTVTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		600000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60000000000000000000002 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -234,7 +295,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A60000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000000000000000000001 /* OpenMeteoForecastMapperTests.swift in Sources */,
+				A00000000000000000000002 /* WeatherEndpointTests.swift in Sources */,
+				A00000000000000000000003 /* WeatherDashboardViewModelTests.swift in Sources */,
+				A00000000000000000000004 /* ErrorMappingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A70000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 500000000000000000000001 /* WeatherTV */;
+			targetProxy = A70000000000000000000002 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		800000000000000000000001 /* Debug */ = {
@@ -400,6 +480,46 @@
 			};
 			name = Release;
 		};
+		A80000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.WeatherTVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherTV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeatherTV";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		A80000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.WeatherTVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherTV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeatherTV";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -417,6 +537,15 @@
 			buildConfigurations = (
 				800000000000000000000003 /* Debug */,
 				800000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A90000000000000000000001 /* Build configuration list for PBXNativeTarget "WeatherTVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A80000000000000000000001 /* Debug */,
+				A80000000000000000000002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -49,7 +49,7 @@ final class WeatherDashboardViewModel: ObservableObject {
         } catch {
             state = .failed(
                 ErrorViewState(
-                    message: error.localizedDescription
+                    message: userMessage(for: error)
                 )
             )
         }
@@ -78,5 +78,14 @@ final class WeatherDashboardViewModel: ObservableObject {
         }
 
         return rows
+    }
+
+    private func userMessage(for error: Error) -> String {
+        if let localizedError = error as? LocalizedError,
+           let errorDescription = localizedError.errorDescription {
+            return errorDescription
+        }
+
+        return "The forecast could not be loaded. Please try again in a moment."
     }
 }
