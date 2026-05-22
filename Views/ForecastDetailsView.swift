@@ -14,13 +14,14 @@ struct ForecastDetailsView: View {
         ZStack {
             background
 
-            VStack(alignment: .leading, spacing: 64) {
+            VStack(alignment: .leading, spacing: 44) {
                 header
                 forecastOverview
                 metricsGrid
             }
             .padding(.horizontal, 116)
-            .padding(.vertical, 80)
+            .padding(.top, 58)
+            .padding(.bottom, 72)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
     }
@@ -42,14 +43,14 @@ private extension ForecastDetailsView {
     }
 
     var header: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 10) {
             Text(locationName)
-                .font(.system(size: 58, weight: .bold, design: .rounded))
+                .font(.system(size: 56, weight: .bold, design: .rounded))
                 .lineLimit(1)
                 .minimumScaleFactor(0.82)
 
             Text(Self.fullDateFormatter.string(from: forecast.date))
-                .font(.title.bold())
+                .font(.title2.weight(.semibold))
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.82)
@@ -57,22 +58,22 @@ private extension ForecastDetailsView {
     }
 
     var forecastOverview: some View {
-        HStack(alignment: .center, spacing: 56) {
+        HStack(alignment: .center, spacing: 46) {
             Image(systemName: forecast.iconName)
-                .font(.system(size: 132, weight: .medium))
+                .font(.system(size: 120, weight: .medium))
                 .symbolRenderingMode(.hierarchical)
                 .foregroundStyle(.white)
-                .frame(width: 160, height: 160)
+                .frame(width: 144, height: 144)
                 .accessibilityHidden(true)
 
-            VStack(alignment: .leading, spacing: 18) {
+            VStack(alignment: .leading, spacing: 14) {
                 Text(forecast.condition)
-                    .font(.system(size: 52, weight: .semibold, design: .rounded))
+                    .font(.system(size: 48, weight: .semibold, design: .rounded))
                     .lineLimit(2)
                     .minimumScaleFactor(0.78)
 
                 Text(temperatureRangeText)
-                    .font(.system(size: 72, weight: .bold, design: .rounded))
+                    .font(.system(size: 68, weight: .bold, design: .rounded))
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
             }
@@ -80,7 +81,7 @@ private extension ForecastDetailsView {
     }
 
     var metricsGrid: some View {
-        HStack(spacing: 28) {
+        HStack(spacing: 30) {
             DetailMetricView(
                 title: "High",
                 value: "\(forecast.highTemperature)°",
@@ -128,40 +129,50 @@ private struct DetailMetricView: View {
     let systemImageName: String
 
     private enum Layout {
-        static let cardWidth: CGFloat = 300
+        static let cardWidth: CGFloat = 340
         static let cardHeight: CGFloat = 190
         static let cornerRadius: CGFloat = 12
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 18) {
+        VStack(alignment: .leading, spacing: 12) {
             Image(systemName: systemImageName)
-                .font(.system(size: 36, weight: .semibold))
+                .font(.system(size: 28, weight: .semibold))
                 .foregroundStyle(.secondary)
-                .frame(width: 46, height: 46, alignment: .leading)
+                .frame(width: 34, height: 34, alignment: .leading)
                 .accessibilityHidden(true)
 
-            VStack(alignment: .leading, spacing: 8) {
-                Text(title)
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.82)
+            Text(title)
+                .font(.title3.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.92)
 
-                Text(value)
-                    .font(.system(size: 36, weight: .bold, design: .rounded))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.76)
-            }
+            Text(value)
+                .font(.system(size: 46, weight: .bold, design: .rounded))
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
         }
         .foregroundStyle(.white)
-        .padding(28)
+        .padding(.horizontal, 30)
+        .padding(.vertical, 26)
         .frame(width: Layout.cardWidth, height: Layout.cardHeight, alignment: .leading)
-        .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: Layout.cornerRadius))
+        .background(metricBackground, in: RoundedRectangle(cornerRadius: Layout.cornerRadius))
         .overlay {
             RoundedRectangle(cornerRadius: Layout.cornerRadius)
-                .stroke(.white.opacity(0.16), lineWidth: 1)
+                .stroke(.white.opacity(0.12), lineWidth: 1)
         }
+    }
+
+    private var metricBackground: LinearGradient {
+        LinearGradient(
+            colors: [
+                Color.white.opacity(0.11),
+                Color.white.opacity(0.06)
+            ],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
     }
 }
 

@@ -8,7 +8,7 @@ struct ForecastCardView: View {
         static let cardWidth: CGFloat = 336
         static let cardHeight: CGFloat = 324
         static let cornerRadius: CGFloat = 12
-        static let focusedScale = 1.06
+        static let focusedScale = 1.07
     }
 
     private static let dayFormatter: DateFormatter = {
@@ -26,21 +26,27 @@ struct ForecastCardView: View {
         .overlay {
             RoundedRectangle(cornerRadius: Layout.cornerRadius)
                 .stroke(
-                    isFocused ? .white.opacity(0.34) : .white.opacity(0.16),
-                    lineWidth: isFocused ? 2 : 1
+                    isFocused ? .white.opacity(0.22) : .white.opacity(0.14),
+                    lineWidth: 1
                 )
         }
         .shadow(
-            color: .black.opacity(isFocused ? 0.68 : 0.28),
-            radius: isFocused ? 36 : 14,
+            color: .black.opacity(isFocused ? 0.72 : 0.28),
+            radius: isFocused ? 38 : 14,
             x: 0,
-            y: isFocused ? 24 : 10
+            y: isFocused ? 26 : 10
         )
         .shadow(
-            color: .blue.opacity(isFocused ? 0.18 : 0),
-            radius: isFocused ? 24 : 0,
+            color: .white.opacity(isFocused ? 0.08 : 0),
+            radius: isFocused ? 18 : 0,
             x: 0,
             y: 0
+        )
+        .shadow(
+            color: .blue.opacity(isFocused ? 0.14 : 0),
+            radius: isFocused ? 28 : 0,
+            x: 0,
+            y: 6
         )
         .scaleEffect(isFocused ? Layout.focusedScale : 1)
         .zIndex(isFocused ? 1 : 0)
