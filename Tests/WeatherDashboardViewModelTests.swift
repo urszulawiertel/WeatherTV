@@ -51,7 +51,7 @@ final class WeatherDashboardViewModelTests: XCTestCase {
         guard case .failed(let errorViewState) = states.last else {
             return XCTFail("Expected failed state.")
         }
-        XCTAssertEqual(errorViewState.title, "Forecast unavailable")
+        XCTAssertEqual(errorViewState.title, L10n.Error.forecastUnavailableTitle)
         XCTAssertFalse(errorViewState.message.isEmpty)
     }
 

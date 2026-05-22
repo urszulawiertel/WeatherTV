@@ -1,0 +1,32 @@
+"dashboard.title" = "WeatherTV";
+"dashboard.subtitle" = "Multi-day forecast";
+"dashboard.loading.title" = "Loading forecasts";
+"dashboard.loading.message" = "Getting the latest weather for your saved locations.";
+"dashboard.empty.title" = "No forecasts available";
+"dashboard.empty.message" = "There is no forecast data to show right now.";
+"dashboard.retry.button" = "Retry";
+
+"forecast.details.high" = "High";
+"forecast.details.low" = "Low";
+"forecast.details.precipitation" = "Precipitation";
+"forecast.details.wind" = "Wind";
+"forecast.details.wind.speed" = "%d km/h";
+
+"forecast.condition.clear" = "Clear";
+"forecast.condition.sunny" = "Sunny";
+"forecast.condition.partlyCloudy" = "Partly Cloudy";
+"forecast.condition.cloudy" = "Cloudy";
+"forecast.condition.fog" = "Fog";
+"forecast.condition.drizzle" = "Drizzle";
+"forecast.condition.rain" = "Rain";
+"forecast.condition.snow" = "Snow";
+"forecast.condition.thunderstorm" = "Thunderstorm";
+"forecast.condition.unknown" = "Unknown";
+
+"error.forecastUnavailable.title" = "Forecast unavailable";
+"error.forecastLoadFailed.message" = "The forecast could not be loaded. Please try again in a moment.";
+"error.weather.invalidURL" = "The weather request URL is invalid.";
+"error.weather.invalidResponse" = "The weather service returned an invalid response.";
+"error.weather.decodingFailed" = "The weather response could not be decoded.";
+"error.weather.serverError" = "The weather service is temporarily unavailable.";
+"error.weather.unknown" = "An unknown weather service error occurred.";

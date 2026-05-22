@@ -33,16 +33,16 @@ struct WeatherDashboardView: View {
         switch viewModel.state {
         case .idle, .loading:
             statusView(
-                title: "Loading forecasts",
-                message: "Getting the latest mock weather for your saved locations.",
+                title: L10n.Dashboard.loadingTitle,
+                message: L10n.Dashboard.loadingMessage,
                 showsProgress: true
             )
         case .loaded(let locationForecasts):
             loadedView(locationForecasts)
         case .empty:
             statusView(
-                title: "No forecasts available",
-                message: "There is no mock forecast data to show right now.",
+                title: L10n.Dashboard.emptyTitle,
+                message: L10n.Dashboard.emptyMessage,
                 showsProgress: false
             )
         case .failed(let errorViewState):
@@ -72,10 +72,10 @@ struct WeatherDashboardView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("WeatherTV")
+            Text(L10n.Dashboard.title)
                 .font(.system(size: 56, weight: .bold, design: .rounded))
 
-            Text("Multi-day forecast")
+            Text(L10n.Dashboard.subtitle)
                 .font(.title2)
                 .foregroundStyle(.secondary)
         }
@@ -123,7 +123,7 @@ struct WeatherDashboardView: View {
                     await viewModel.retry()
                 }
             } label: {
-                Text("Retry")
+                Text(L10n.Dashboard.retryButton)
                     .font(.title3.bold())
                     .padding(.horizontal, 28)
                     .padding(.vertical, 10)

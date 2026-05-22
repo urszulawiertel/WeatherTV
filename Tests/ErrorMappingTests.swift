@@ -16,8 +16,22 @@ final class ErrorMappingTests: XCTestCase {
         }
         XCTAssertEqual(
             errorViewState.message,
-            "The weather service is temporarily unavailable."
+            L10n.Error.serverError
         )
+    }
+
+    func testWeatherAPIErrorsUseLocalizedUserFacingMessages() {
+        let expectedMessages: [WeatherAPIError: String] = [
+            .invalidURL: L10n.Error.invalidURL,
+            .invalidResponse: L10n.Error.invalidResponse,
+            .decodingFailed: L10n.Error.decodingFailed,
+            .serverError: L10n.Error.serverError,
+            .unknown: L10n.Error.unknown
+        ]
+
+        for (error, message) in expectedMessages {
+            XCTAssertEqual(error.errorDescription, message)
+        }
     }
 
     func testUnknownErrorUsesReadableFallbackMessage() async {
@@ -33,10 +47,25 @@ final class ErrorMappingTests: XCTestCase {
         }
         XCTAssertEqual(
             errorViewState.message,
-            "The forecast could not be loaded. Please try again in a moment."
+            L10n.Error.forecastLoadFailedMessage
         )
         XCTAssertFalse(errorViewState.message.contains("TestWeatherError"))
         XCTAssertFalse(errorViewState.message.contains("error 0"))
+    }
+
+    func testTechnicalLocalizedErrorUsesReadableFallbackMessage() async {
+        let viewModel = WeatherDashboardViewModel(
+            weatherService: FailingWeatherService(error: TestTechnicalError()),
+            locations: [.testLocation]
+        )
+
+        await viewModel.loadForecasts()
+
+        guard case .failed(let errorViewState) = viewModel.state else {
+            return XCTFail("Expected failed state.")
+        }
+        XCTAssertEqual(errorViewState.message, L10n.Error.forecastLoadFailedMessage)
+        XCTAssertFalse(errorViewState.message.contains("Database timeout"))
     }
 }
 
@@ -49,6 +78,12 @@ private struct FailingWeatherService: WeatherServiceProtocol {
 }
 
 private struct TestWeatherError: Error {}
+
+private struct TestTechnicalError: LocalizedError {
+    var errorDescription: String? {
+        "Database timeout while reading cache."
+    }
+}
 
 private extension Location {
     static let testLocation = Location(

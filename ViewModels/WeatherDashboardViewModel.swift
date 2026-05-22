@@ -13,7 +13,7 @@ struct ErrorViewState: Equatable {
     let message: String
 
     init(
-        title: String = "Forecast unavailable",
+        title: String = L10n.Error.forecastUnavailableTitle,
         message: String
     ) {
         self.title = title
@@ -81,11 +81,11 @@ final class WeatherDashboardViewModel: ObservableObject {
     }
 
     private func userMessage(for error: Error) -> String {
-        if let localizedError = error as? LocalizedError,
+        if let localizedError = error as? UserDisplayableError,
            let errorDescription = localizedError.errorDescription {
             return errorDescription
         }
 
-        return "The forecast could not be loaded. Please try again in a moment."
+        return L10n.Error.forecastLoadFailedMessage
     }
 }

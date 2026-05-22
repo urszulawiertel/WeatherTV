@@ -1,0 +1,32 @@
+"dashboard.title" = "WeatherTV";
+"dashboard.subtitle" = "Prognoza wielodniowa";
+"dashboard.loading.title" = "Wczytywanie prognoz";
+"dashboard.loading.message" = "Pobieranie najnowszej pogody dla zapisanych lokalizacji.";
+"dashboard.empty.title" = "Brak dostępnych prognoz";
+"dashboard.empty.message" = "Nie ma teraz danych prognozy do wyświetlenia.";
+"dashboard.retry.button" = "Spróbuj ponownie";
+
+"forecast.details.high" = "Maksimum";
+"forecast.details.low" = "Minimum";
+"forecast.details.precipitation" = "Opady";
+"forecast.details.wind" = "Wiatr";
+"forecast.details.wind.speed" = "%d km/h";
+
+"forecast.condition.clear" = "Bezchmurnie";
+"forecast.condition.sunny" = "Słonecznie";
+"forecast.condition.partlyCloudy" = "Częściowe zachmurzenie";
+"forecast.condition.cloudy" = "Pochmurno";
+"forecast.condition.fog" = "Mgła";
+"forecast.condition.drizzle" = "Mżawka";
+"forecast.condition.rain" = "Deszcz";
+"forecast.condition.snow" = "Śnieg";
+"forecast.condition.thunderstorm" = "Burza";
+"forecast.condition.unknown" = "Nieznane";
+
+"error.forecastUnavailable.title" = "Prognoza niedostępna";
+"error.forecastLoadFailed.message" = "Nie udało się wczytać prognozy. Spróbuj ponownie za chwilę.";
+"error.weather.invalidURL" = "Adres URL prognozy pogody jest nieprawidłowy.";
+"error.weather.invalidResponse" = "Usługa pogodowa zwróciła nieprawidłową odpowiedź.";
+"error.weather.decodingFailed" = "Nie udało się odczytać odpowiedzi pogodowej.";
+"error.weather.serverError" = "Usługa pogodowa jest tymczasowo niedostępna.";
+"error.weather.unknown" = "Wystąpił nieznany błąd usługi pogodowej.";

@@ -70,3 +70,9 @@ final class MockWeatherService: WeatherServiceProtocol {
         }
     }
 }
+
+extension MockWeatherService.MockWeatherError: UserDisplayableError {
+    var errorDescription: String? {
+        L10n.Error.serverError
+    }
+}

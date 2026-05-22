@@ -8,19 +8,21 @@ enum WeatherAPIError: Error, Equatable {
     case unknown
 }
 
-extension WeatherAPIError: LocalizedError {
+protocol UserDisplayableError: LocalizedError {}
+
+extension WeatherAPIError: UserDisplayableError {
     var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return "The weather request URL is invalid."
+            return L10n.Error.invalidURL
         case .invalidResponse:
-            return "The weather service returned an invalid response."
+            return L10n.Error.invalidResponse
         case .decodingFailed:
-            return "The weather response could not be decoded."
+            return L10n.Error.decodingFailed
         case .serverError:
-            return "The weather service is temporarily unavailable."
+            return L10n.Error.serverError
         case .unknown:
-            return "An unknown weather service error occurred."
+            return L10n.Error.unknown
         }
     }
 }

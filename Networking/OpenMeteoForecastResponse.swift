@@ -38,7 +38,7 @@ enum OpenMeteoForecastMapper {
 
             return DailyForecast(
                 date: date,
-                condition: condition.description,
+                condition: condition.forecastCondition.localizedDescription,
                 iconName: condition.iconName,
                 highTemperature: Int(temperatureMax.rounded()),
                 lowTemperature: Int(temperatureMin.rounded()),
@@ -61,50 +61,31 @@ enum OpenMeteoForecastMapper {
 private struct OpenMeteoWeatherCode {
     let code: Int
 
-    var description: String {
+    var forecastCondition: ForecastCondition {
         switch code {
         case 0:
-            return "Clear"
+            return .clear
         case 1, 2:
-            return "Partly Cloudy"
+            return .partlyCloudy
         case 3:
-            return "Cloudy"
+            return .cloudy
         case 45, 48:
-            return "Fog"
+            return .fog
         case 51, 53, 55, 56, 57:
-            return "Drizzle"
+            return .drizzle
         case 61, 63, 65, 66, 67, 80, 81, 82:
-            return "Rain"
+            return .rain
         case 71, 73, 75, 77, 85, 86:
-            return "Snow"
+            return .snow
         case 95, 96, 99:
-            return "Thunderstorm"
+            return .thunderstorm
         default:
-            return "Unknown"
+            return .unknown
         }
     }
 
     var iconName: String {
-        switch code {
-        case 0:
-            return "sun.max.fill"
-        case 1, 2:
-            return "cloud.sun.fill"
-        case 3:
-            return "cloud.fill"
-        case 45, 48:
-            return "cloud.fog.fill"
-        case 51, 53, 55, 56, 57:
-            return "cloud.drizzle.fill"
-        case 61, 63, 65, 66, 67, 80, 81, 82:
-            return "cloud.rain.fill"
-        case 71, 73, 75, 77, 85, 86:
-            return "cloud.snow.fill"
-        case 95, 96, 99:
-            return "cloud.bolt.rain.fill"
-        default:
-            return "questionmark.circle.fill"
-        }
+        forecastCondition.iconName
     }
 }
 

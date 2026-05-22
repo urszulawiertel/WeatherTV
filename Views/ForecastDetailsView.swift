@@ -83,20 +83,20 @@ private extension ForecastDetailsView {
     var metricsGrid: some View {
         HStack(spacing: 30) {
             DetailMetricView(
-                title: "High",
+                title: L10n.ForecastDetails.high,
                 value: "\(forecast.highTemperature)°",
                 systemImageName: "thermometer.sun.fill"
             )
 
             DetailMetricView(
-                title: "Low",
+                title: L10n.ForecastDetails.low,
                 value: "\(forecast.lowTemperature)°",
                 systemImageName: "thermometer.snowflake"
             )
 
             if let precipitationProbability = forecast.precipitationProbability {
                 DetailMetricView(
-                    title: "Precipitation",
+                    title: L10n.ForecastDetails.precipitation,
                     value: "\(precipitationProbability)%",
                     systemImageName: "drop.fill"
                 )
@@ -104,7 +104,7 @@ private extension ForecastDetailsView {
 
             if let windSpeed = forecast.windSpeed {
                 DetailMetricView(
-                    title: "Wind",
+                    title: L10n.ForecastDetails.wind,
                     value: formattedWindSpeed(windSpeed),
                     systemImageName: "wind"
                 )
@@ -117,7 +117,7 @@ private extension ForecastDetailsView {
     }
 
     func formattedWindSpeed(_ windSpeed: Double) -> String {
-        "\(Int(windSpeed.rounded())) km/h"
+        L10n.ForecastDetails.windSpeed(Int(windSpeed.rounded()))
     }
 }
 

@@ -22,10 +22,13 @@
 		10000000000000000000000D /* ForecastCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000D /* ForecastCardView.swift */; };
 		10000000000000000000000E /* ForecastDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000E /* ForecastDetailsView.swift */; };
 		10000000000000000000000F /* OpenMeteoForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000F /* OpenMeteoForecastResponse.swift */; };
+		100000000000000000000010 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000010 /* LocalizedStrings.swift */; };
+		100000000000000000000011 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000011 /* Localizable.strings */; };
 		A00000000000000000000001 /* OpenMeteoForecastMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000001 /* OpenMeteoForecastMapperTests.swift */; };
 		A00000000000000000000002 /* WeatherEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000002 /* WeatherEndpointTests.swift */; };
 		A00000000000000000000003 /* WeatherDashboardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000003 /* WeatherDashboardViewModelTests.swift */; };
 		A00000000000000000000004 /* ErrorMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000004 /* ErrorMappingTests.swift */; };
+		A00000000000000000000005 /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000005 /* LocalizationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,11 +58,15 @@
 		20000000000000000000000D /* ForecastCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCardView.swift; sourceTree = "<group>"; };
 		20000000000000000000000E /* ForecastDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDetailsView.swift; sourceTree = "<group>"; };
 		20000000000000000000000F /* OpenMeteoForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteoForecastResponse.swift; sourceTree = "<group>"; };
+		200000000000000000000010 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		200000000000000000000012 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		200000000000000000000013 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A10000000000000000000000 /* WeatherTVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10000000000000000000001 /* OpenMeteoForecastMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteoForecastMapperTests.swift; sourceTree = "<group>"; };
 		A10000000000000000000002 /* WeatherEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEndpointTests.swift; sourceTree = "<group>"; };
 		A10000000000000000000003 /* WeatherDashboardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDashboardViewModelTests.swift; sourceTree = "<group>"; };
 		A10000000000000000000004 /* ErrorMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMappingTests.swift; sourceTree = "<group>"; };
+		A10000000000000000000005 /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +162,8 @@
 		400000000000000000000008 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				200000000000000000000010 /* LocalizedStrings.swift */,
+				200000000000000000000011 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -166,6 +175,7 @@
 				A10000000000000000000002 /* WeatherEndpointTests.swift */,
 				A10000000000000000000003 /* WeatherDashboardViewModelTests.swift */,
 				A10000000000000000000004 /* ErrorMappingTests.swift */,
+				A10000000000000000000005 /* LocalizationTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -242,6 +252,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				pl,
 				Base,
 			);
 			mainGroup = 400000000000000000000001;
@@ -260,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				100000000000000000000011 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +304,7 @@
 				10000000000000000000000D /* ForecastCardView.swift in Sources */,
 				10000000000000000000000E /* ForecastDetailsView.swift in Sources */,
 				10000000000000000000000F /* OpenMeteoForecastResponse.swift in Sources */,
+				100000000000000000000010 /* LocalizedStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,10 +316,23 @@
 				A00000000000000000000002 /* WeatherEndpointTests.swift in Sources */,
 				A00000000000000000000003 /* WeatherDashboardViewModelTests.swift in Sources */,
 				A00000000000000000000004 /* ErrorMappingTests.swift in Sources */,
+				A00000000000000000000005 /* LocalizationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		200000000000000000000011 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				200000000000000000000012 /* en */,
+				200000000000000000000013 /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin PBXTargetDependency section */
 		A70000000000000000000001 /* PBXTargetDependency */ = {
