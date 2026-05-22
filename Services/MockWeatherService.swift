@@ -1,7 +1,34 @@
 import Foundation
 
 struct MockWeatherService: WeatherServiceProtocol {
+    enum Scenario {
+        case success
+        case empty
+        case failure
+    }
+
+    enum MockWeatherError: Error {
+        case forecastUnavailable
+    }
+
+    private let scenario: Scenario
+
+    init(scenario: Scenario = .success) {
+        self.scenario = scenario
+    }
+
     func fetchForecast(for location: Location) async throws -> [DailyForecast] {
+        switch scenario {
+        case .success:
+            return forecast(for: location)
+        case .empty:
+            return []
+        case .failure:
+            throw MockWeatherError.forecastUnavailable
+        }
+    }
+
+    private func forecast(for location: Location) -> [DailyForecast] {
         DailyForecast.placeholder.enumerated().map { index, forecast in
             DailyForecast(
                 date: forecast.date,

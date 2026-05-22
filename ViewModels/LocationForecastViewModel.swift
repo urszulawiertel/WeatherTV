@@ -1,6 +1,6 @@
 import Foundation
 
-struct LocationForecastViewModel: Identifiable {
+struct LocationForecastViewModel: Identifiable, Equatable {
     var id: Location.ID {
         location.id
     }
